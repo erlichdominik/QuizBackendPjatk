@@ -35,7 +35,6 @@ public class QuizController {
     public ResponseEntity<?> addAnswers(@RequestBody Collection<Answer> answers, @PathVariable String id) {
         Optional<Question> byId = questionRepository.findById(Long.valueOf(id));
         if (byId.isEmpty()) return ResponseEntity.notFound().build();
-        byId.get().setAnswers((List<Answer>) answers);
         return ResponseEntity.ok().build();
 
     }

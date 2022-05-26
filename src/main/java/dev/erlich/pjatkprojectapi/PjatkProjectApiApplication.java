@@ -84,11 +84,6 @@ public class PjatkProjectApiApplication {
                     .value("a3")
                     .build();
 
-            Question q1 = Question.builder()
-                    .id(1L)
-                    .value("q1")
-                    .answers(List.of()).build();
-
 
 //            questionRepository.save(q1);
         };
