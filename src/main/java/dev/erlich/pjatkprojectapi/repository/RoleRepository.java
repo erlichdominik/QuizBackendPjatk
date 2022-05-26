@@ -1,6 +1,6 @@
 package dev.erlich.pjatkprojectapi.repository;
 
-import dev.erlich.pjatkprojectapi.model.Role;
+import dev.erlich.pjatkprojectapi.model.security.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,12 +1,11 @@
 package dev.erlich.pjatkprojectapi;
 
-import dev.erlich.pjatkprojectapi.model.Privilege;
-import dev.erlich.pjatkprojectapi.model.Role;
-import dev.erlich.pjatkprojectapi.model.User;
-import dev.erlich.pjatkprojectapi.repository.PrivilegeRepository;
-import dev.erlich.pjatkprojectapi.repository.RoleRepository;
-import dev.erlich.pjatkprojectapi.repository.UserRepository;
-import dev.erlich.pjatkprojectapi.service.UserService;
+import dev.erlich.pjatkprojectapi.model.Answer;
+import dev.erlich.pjatkprojectapi.model.Question;
+import dev.erlich.pjatkprojectapi.model.security.Privilege;
+import dev.erlich.pjatkprojectapi.model.security.Role;
+import dev.erlich.pjatkprojectapi.model.security.User;
+import dev.erlich.pjatkprojectapi.repository.*;
 import dev.erlich.pjatkprojectapi.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,10 +17,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Slf4j
 @SpringBootApplication
@@ -34,6 +33,8 @@ public class PjatkProjectApiApplication {
     private final PrivilegeRepository privilegeRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
+    private final QuestionRepository questionRepository;
+    private final AnswerRepository answerRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(PjatkProjectApiApplication.class, args);
@@ -66,8 +67,32 @@ public class PjatkProjectApiApplication {
             user.setPassword(passwordEncoder.encode("test"));
             user.setMail("test@test.com");
             user.setRoles(List.of(adminRole));
-            userRepository.save(user);
+//            userRepository.save(user);
+
+            Answer a1 = Answer.builder()
+                    .id(1L)
+                    .value("a1")
+                    .build();
+
+            Answer a2 = Answer.builder()
+                    .id(2L)
+                    .value("a2")
+                    .build();
+
+            Answer a3 = Answer.builder()
+                    .id(3L)
+                    .value("a3")
+                    .build();
+
+            Question q1 = Question.builder()
+                    .id(1L)
+                    .value("q1")
+                    .answers(List.of()).build();
+
+
+//            questionRepository.save(q1);
         };
+
     }
 
     @Transactional

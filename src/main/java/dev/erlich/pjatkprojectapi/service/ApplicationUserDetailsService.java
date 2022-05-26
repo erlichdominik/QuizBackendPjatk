@@ -1,6 +1,5 @@
 package dev.erlich.pjatkprojectapi.service;
 
-import dev.erlich.pjatkprojectapi.model.User;
 import dev.erlich.pjatkprojectapi.repository.RoleRepository;
 import dev.erlich.pjatkprojectapi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

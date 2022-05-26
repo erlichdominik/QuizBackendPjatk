@@ -1,4 +1,4 @@
-package dev.erlich.pjatkprojectapi.model;
+package dev.erlich.pjatkprojectapi.model.security;
 
 import lombok.*;
 import org.hibernate.Hibernate;

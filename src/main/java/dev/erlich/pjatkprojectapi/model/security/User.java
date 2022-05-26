@@ -1,4 +1,4 @@
-package dev.erlich.pjatkprojectapi.model;
+package dev.erlich.pjatkprojectapi.model.security;
 
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "APPLICATION_USER")
 @Getter
 @Setter
 @ToString

@@ -1,7 +1,7 @@
 package dev.erlich.pjatkprojectapi.service;
 
-import dev.erlich.pjatkprojectapi.model.Privilege;
-import dev.erlich.pjatkprojectapi.model.Role;
+import dev.erlich.pjatkprojectapi.model.security.Privilege;
+import dev.erlich.pjatkprojectapi.model.security.Role;
 import dev.erlich.pjatkprojectapi.repository.RoleRepository;
 import dev.erlich.pjatkprojectapi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
