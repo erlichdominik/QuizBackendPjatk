@@ -5,14 +5,21 @@ import dev.erlich.pjatkprojectapi.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class QuestionServiceImpl implements QuestionService{
     private final QuestionRepository questionRepository;
+
     @Override
-    public Optional<Question> getQuestionById(Long id) {
-        return questionRepository.findById(id);
+    public Optional<Question> getOptionalQuestionById(Long id) {
+        return Optional.of(questionRepository.getById(id));
+    }
+
+    @Override
+    public List<Question> getAllQuestions() {
+        return questionRepository.findAll();
     }
 }
