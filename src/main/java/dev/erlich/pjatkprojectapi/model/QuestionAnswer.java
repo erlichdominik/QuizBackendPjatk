@@ -4,37 +4,38 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.*;
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 @Entity
 @Getter
 @Setter
-@Builder
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Question {
+public class QuestionAnswer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Long id;
-    private String value;
 
-    @OneToOne(mappedBy = "question")
-    private QuestionAnswer questionAnswer;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "question_id")
+    private Question question;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "answer_id")
+    private Answer answer;
+
+    @NotNull
+    private Boolean isCorrect;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Question question = (Question) o;
-        return id != null && Objects.equals(id, question.id);
-    }
-
-    @Override
-    public String toString() {
-        return "Question{" +
-                "id=" + id +
-                ", value='" + value + '\'' +
-                '}';
+        QuestionAnswer that = (QuestionAnswer) o;
+        return id != null && Objects.equals(id, that.id);
     }
 
     @Override
@@ -42,3 +43,5 @@ public class Question {
         return getClass().hashCode();
     }
 }
+
+

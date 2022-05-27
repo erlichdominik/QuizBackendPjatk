@@ -20,35 +20,25 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class QuizController {
 
-    // What do you think about injecting QuestionService and UserService here and removing the repositories? @Dom
-    private final AnswerRepository answerRepository;
-    private final QuestionRepository questionRepository;
-
     private final QuestionService questionService;
     private final AnswerService answerService;
 
     @GetMapping("/a")
     public ResponseEntity<?> getAnswers() {
-        return ResponseEntity.ok(questionRepository.findAll());
-//        return ResponseEntity.ok(questionService.getAllQuestions()); <- ?
+        return ResponseEntity.ok(questionService.getAllQuestions());
     }
 
     @GetMapping("/")
     public ResponseEntity<?> get() {
-        List<Answer> all = answerRepository.findAll();
-        return ResponseEntity.ok(all);
-//        return ResponseEntity.ok(answerService.getAllAnswers()); <- ?
+        return ResponseEntity.ok(answerService.getAllAnswers());
     }
 
     @PostMapping("/{id}")
     public ResponseEntity<?> addAnswers(@RequestBody Collection<Answer> answers, @PathVariable String id) {
-        Optional<Question> byId = questionRepository.findById(Long.valueOf(id));
-        if (byId.isEmpty()) return ResponseEntity.notFound().build();
-        byId.get().setAnswers((List<Answer>) answers);
-        return ResponseEntity.ok().build();
-
-
-
+        Optional<Question> byId = questionService.getOptionalQuestionById(Long.valueOf(id));
+        return (byId.isEmpty())
+                ? ResponseEntity.notFound().build()
+                : ResponseEntity.ok().build();
     }
 
 }

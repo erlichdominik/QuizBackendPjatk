@@ -19,8 +19,6 @@ import java.util.*;
 @Slf4j
 public class UserServiceImpl implements UserService{
 
-    // What do you think about putting each *serviceImpl into -> impl package? @Dom
-
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
