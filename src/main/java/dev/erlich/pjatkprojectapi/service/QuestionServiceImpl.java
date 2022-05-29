@@ -10,12 +10,12 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class QuestionServiceImpl implements QuestionService{
+public class QuestionServiceImpl implements QuestionService {
     private final QuestionRepository questionRepository;
 
     @Override
     public Optional<Question> getOptionalQuestionById(Long id) {
-        return Optional.of(questionRepository.getById(id));
+        return questionRepository.findById(id);
     }
 
     @Override
