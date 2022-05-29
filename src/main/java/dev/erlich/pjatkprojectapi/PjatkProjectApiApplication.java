@@ -67,7 +67,7 @@ public class PjatkProjectApiApplication {
             user.setPassword(passwordEncoder.encode("test"));
             user.setMail("test@test.com");
             user.setRoles(List.of(adminRole));
-//            userRepository.save(user);
+            userRepository.save(user);
 
             Answer a1 = Answer.builder()
                     .id(1L)

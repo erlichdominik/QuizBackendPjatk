@@ -15,14 +15,12 @@ public class QuizController {
 
     @GetMapping("/")
     public String main(Model model) {
-        return "main";
-    }
-
-    @GetMapping("/start")
-    public String startQuiz(Model model) {
-        quizService.startQuiz();
         return "home";
     }
+
+//    @GetMapping("/start")
+//    public String startQuiz(Model model) {
+//    }
 
 //    @GetMapping("/a")
 //    public ResponseEntity<?> getAnswers() {

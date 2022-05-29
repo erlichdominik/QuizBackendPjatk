@@ -18,8 +18,8 @@ public class Question {
     private Long id;
     private String value;
 
-    @OneToOne(mappedBy = "question")
-    private QuestionAnswer questionAnswer;
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    private Set<QuestionAnswer> questionAnswers = new LinkedHashSet<>();
 
     @Override
     public boolean equals(Object o) {
