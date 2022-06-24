@@ -21,6 +21,9 @@ public class Question {
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     private Set<QuestionAnswer> questionAnswers = new LinkedHashSet<>();
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Question nextQuestion;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "quiz_id")
     private Quiz quiz;

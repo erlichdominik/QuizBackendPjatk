@@ -3,23 +3,42 @@
 <head>
   <title>Getting Started: Serving Web Content</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <body>
-<div class="containter">
-  <h1>Choose an option</h1>
-
-  <button class="ui-button">
-    Start a quiz
-  </button>
-  <button class="ui-button">
-    Flashcard
-  </button>
-  <button class="ui-button">
-    View history
-  </button>
-  <button class="ui-button">
-    Log out
-  </button>
+<div class="min-vw-100 min-vh-100 d-flex justify-content-center align-items-center">
+<!--  &lt;!&ndash;choose an option tag&ndash;&gt;-->
+<!--  <h1 class="h1">Choose an option</h1>-->
+  <div class="container w-auto text-center">
+    <div class="row">
+      <!--choose an option tag-->
+      <h1 class="h1">Choose an option</h1>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <button type="button" onclick="window.location.href='/start'"  class="btn btn-outline-primary w-100 mt-4">Start a quiz</button>
+      </div>
+      <!--    start a quiz-->
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <button type="button" class="btn btn-primary w-100">Flashcards</button>
+      </div>
+      <!--    flashcard-->
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <!--    view history-->
+        <button type="button" class="btn btn-outline-primary w-100">View history</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-primary w-100">Log out</button>
+        <!--    log out-->
+      </div>
+    </div>
+  </div>
 </div>
 </body>
 </html>
