@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container min-vh-100 min-vw-100 d-flex justify-content-center align-items-center">
+    <div class="row align-middle h-100">
+        <div class="col text-center">
+            <div class="card align-middle" style="width: 80vw;">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${question.value}">Card title</h5>
+<!--                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--                        card's-->
+<!--                        content.</p>-->
+                    <div th:if="${question.questionAnswers != null}">
+                        <div class="row">
+                            <div class="col-2">
+
+                            </div>
+                            <div class="col-8">
+                                <form action="#" th:action="@{/next-question}" th:object="${questionAnswerId}"
+                                      class="form-check" method="post">
+                                    <div th:each="questionAnswer :${question.questionAnswers}">
+                                        <input type="radio" class="form-check-input" id="id" name="id"
+                                               th:value="${questionAnswer.id}" th:name="id"/>
+                                        <label class="form-check-label" th:for="${questionAnswerId.id}"
+                                               th:text="${questionAnswer.answer.value}">test</label>
+                                        <input type="hidden" id="currentQuestionId" name="currentQuestionId"
+                                               th:value="${question.id}" th:name="currentQuestionId"/>
+                                    </div>
+                                    <input class="btn btn-outline-primary" type="submit" value="Next Question">
+                                </form>
+                            </div>
+                            <div class="col-2">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--                    <button type="button" class="btn btn-outline-primary" th:text="${}">Primary</button>-->
+                    <!--                    <button type="button" class="btn btn-outline-primary">Primary</button>-->
+                    <!--                    <button type="button" class="btn btn-outline-primary">Primary</button>-->
+                    <!--                    <button type="button" class="btn btn-outline-primary">Primary</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

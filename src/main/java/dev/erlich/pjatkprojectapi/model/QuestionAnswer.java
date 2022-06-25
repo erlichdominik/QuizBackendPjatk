@@ -19,16 +19,16 @@ public class QuestionAnswer {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @NotNull
+    private Boolean isCorrect;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "question_id")
     private Question question;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "answer_id")
     private Answer answer;
-
-    @NotNull
-    private Boolean isCorrect;
 
     @Override
     public boolean equals(Object o) {

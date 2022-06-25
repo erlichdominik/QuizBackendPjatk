@@ -23,8 +23,8 @@ public class Answer {
     private Long id;
     private String value;
 
-    @OneToMany(mappedBy = "answer")
-    private List<QuestionAnswer> questionAnswer = new ArrayList<>();
+    @OneToOne(mappedBy = "answer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private QuestionAnswer questionAnswer;
 
     @Override
     public String toString() {

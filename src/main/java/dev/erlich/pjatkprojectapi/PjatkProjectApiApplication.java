@@ -20,7 +20,6 @@ import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 @Slf4j
 @SpringBootApplication
@@ -67,7 +66,7 @@ public class PjatkProjectApiApplication {
             user.setPassword(passwordEncoder.encode("test"));
             user.setMail("test@test.com");
             user.setRoles(List.of(adminRole));
-//            userRepository.save(user);
+            userRepository.save(user);
 
             Answer a1 = Answer.builder()
                     .id(1L)
